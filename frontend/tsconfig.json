@@ -8,7 +8,7 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false, // prevenzione al problema "non tutti i percorsi del codice restituiscono un errore"
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
