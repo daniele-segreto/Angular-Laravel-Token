@@ -28,7 +28,6 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [ // Creazione di un validatore per i campi 'email' e 'password'
-            'name' => 'required|string|between:2,100',
             'email' => 'required|email',
             'password' => 'required|string|min:6',
         ]);
