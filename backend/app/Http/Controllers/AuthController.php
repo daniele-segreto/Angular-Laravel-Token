@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth; // Utilizzo delle facades di Auth per gestire l'autenticazione
 use Illuminate\Http\Request; // Importazione della classe Request per gestire le richieste HTTP
 use Validator; // Importazione della classe Validator per la convalida dei dati
-use App\User; // Importazione del modello User
+// use App\User; // Importazione del modello User // commentato: user si trova nella cartella Models
+use App\Models\User; // Importazione del modello User
 
 class AuthController extends Controller
 {
