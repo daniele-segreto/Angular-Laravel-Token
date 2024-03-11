@@ -51,13 +51,13 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [ // Creazione di un validatore per i campi 'name', 'email' e 'password'
-            'name' => 'required|string|between:2,100',
-            'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|string|confirmed|min:6',
+            'name' => 'required|string|between:2,100', // Il campo 'name' è obbligatorio, deve essere una stringa con lunghezza tra 2 e 100 caratteri
+            'email' => 'required|string|email|max:100|unique:users', // Il campo 'email' è obbligatorio, deve essere un'email unica con lunghezza massima di 100 caratteri
+            'password' => 'required|string|confirmed|min:6', // Il campo 'password' è obbligatorio, deve essere una stringa confermata con lunghezza minima di 6 caratteri
         ]);
 
         if ($validator->fails()) { // Verifica se la convalida fallisce e restituisce gli errori
-            return response()->json($validator->errors(), 400);
+            return response()->json($validator->errors(), 400); // Restituisce gli errori di convalida in formato JSON con codice di stato 400
         }
 
         $user = User::create(array_merge( // Creazione di un nuovo utente con i dati validati e la password crittografata
@@ -66,11 +66,10 @@ class AuthController extends Controller
         ));
 
         return response()->json([
-            'message' => 'User successfully registered',
-            'user' => $user
-        ], 201);
+            'message' => 'User successfully registered', // Messaggio di successo per la registrazione dell'utente
+            'user' => $user // Dettagli dell'utente registrato
+        ], 201); // Codice di stato 201 (Created)
     }
-
 
     /**
      * Disconnetti l'utente (Invalida il token).
