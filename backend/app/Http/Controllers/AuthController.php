@@ -112,11 +112,12 @@ class AuthController extends Controller
      */
     protected function createNewToken($token)
     {
+        // Restituisce un token di accesso in formato JSON con le seguenti informazioni
         return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user()
+            'access_token' => $token, // Token di accesso generato
+            'token_type' => 'bearer', // Tipo di token (nel caso JWT, di solito 'bearer')
+            'expires_in' => auth()->factory()->getTTL() * 60, // Tempo di scadenza del token in secondi
+            'user' => auth()->user() // Utente autenticato associato al token
         ]);
     }
 }
